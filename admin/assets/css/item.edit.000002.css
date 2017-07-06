@@ -1,0 +1,84 @@
+/**
+ * Настройки стилей для редактора заданий
+ * @author Alex Kovalev <alex.kovalevv@gmail.com> 
+ * @copyright Alex Kovalev 30.04.2017 
+ */
+#BZDA_EVO_CombinationMetabox {
+  display: block;
+  background: #f6f6f6;
+}
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-items-combination .onp-bzda-combo-item-prototype {
+  display: none;
+}
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-items-combination .sortable-placeholder {
+  height: 78px;
+  margin-bottom: 8px !important;
+  background: #f3f3f3 !important;
+  box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.15);
+  border-bottom-left-radius: 4px;
+}
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-items-combination .onp-bzda-combo-item {
+  position: relative;
+  padding: 20px;
+  margin-bottom: 8px;
+  padding-left: 55px;
+  font-size: 14px;
+  color: #444444;
+  background: #f7f7f7;
+  -webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgba(0, 0, 0, 0.08);
+  vertical-align: top;
+  border: 1px solid #dcd8d8;
+}
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-items-combination .onp-bzda-combo-item .onp-bzda-item-title {
+  font-weight: bold;
+  color: #7b7a7a;
+}
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-items-combination .onp-bzda-combo-item .onp-bzda-item-sub-title {
+  font-size: 12px;
+  color: #828282;
+}
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-items-combination .onp-bzda-combo-item .onp-bzda-item-setting-button,
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-items-combination .onp-bzda-combo-item .onp-bzda-item-remove-button,
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-items-combination .onp-bzda-combo-item .onp-bzda-item-move {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  padding: 0;
+  height: 30px;
+  width: 30px;
+  line-height: 2.2;
+  margin-top: -15px;
+  text-align: center;
+}
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-items-combination .onp-bzda-combo-item .onp-bzda-item-move {
+  right: auto;
+  left: 20px;
+  background: url(../img/drag.png) 5px 50% no-repeat;
+  cursor: move;
+}
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-items-combination .onp-bzda-combo-item .onp-bzda-item-remove-button {
+  right: 55px;
+}
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-combo-settting-modal .btn-group {
+  border: 0;
+}
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-combo-settting-modal .onp-bzda-combo-settting-section {
+  margin-bottom: 10px;
+}
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-combo-settting-modal .onp-bzda-combo-settting-section strong {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+#BZDA_EVO_CombinationMetabox .factory-bootstrap-000 #onp-bzda-combo-settting-modal .onp-bzda-combo-hint {
+  font-size: 13px;
+  color: #737373;
+  margin-top: 5px;
+  margin-left: 2px;
+}
+@media screen and (min-width: 768px) {
+  #BZDA_EVO_CombinationMetabox .factory-bootstrap-000 .modal-dialog {
+    width: 768px;
+  }
+}

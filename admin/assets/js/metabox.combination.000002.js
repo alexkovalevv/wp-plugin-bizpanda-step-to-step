@@ -110,7 +110,7 @@
 		},
 
 		_loadOptions: function() {
-			var rawOptions = $('#bizpanda_evo_combo_items_options').val(),
+			var rawOptions = $('#bizpanda_step_to_step_combo_items_options').val(),
 				options;
 
 			if( rawOptions ) {
@@ -131,14 +131,14 @@
 			}
 
 			if( void 0 != window.stepToStepLockersOptions && !window.stepToStepLockersOptions[lockerId] ) {
-				var nonce = $("#bizpanda_evo_step_to_step_nonce").val();
+				var nonce = $("#bizpanda_step_to_step_nonce").val();
 
 				$.ajax({
 					url: ajaxurl,
 					type: 'post',
 					dataType: 'json',
 					data: {
-						action: 'bizpanda_evo_get_locker_options',
+						action: 'bizpanda_step_to_step_get_locker_options',
 						lockerId: lockerId,
 						_wpnonce: nonce
 					},
@@ -334,7 +334,7 @@
 
 		_updateItemOptions: function() {
 			var jSonStr = JSON.stringify(this.items);
-			$('#bizpanda_evo_combo_items_options').val(jSonStr);
+			$('#bizpanda_step_to_step_combo_items_options').val(jSonStr);
 		},
 
 		_removeItem: function($holder) {

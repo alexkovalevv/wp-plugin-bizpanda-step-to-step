@@ -11,18 +11,18 @@
 	 * @param $items
 	 * @return mixed
 	 */
-	function onp_bzda_adn_register_step_to_step_item($items)
+	function bizpanda_step_to_step_register_item($items)
 	{
 		global $bizpanda;
 
-		$title = __('Замок шаг за шагом', 'plugin-addon-popup-locker');
+		$title = __('Замок шаг за шагом', 'bizpanda-step-to-step-addon');
 
 		$items['step-to-step'] = array(
 			'name' => 'step-to-step',
 			'type' => 'premium',
 			'title' => $title,
 			'help' => opanda_get_help_url('step-to-step'),
-			'description' => '<p>' . __('<p>Пошаговые задания для всех типов замков.</p> <p>Это будет полезным, когда нужно попросить пользователя подписаться на два сообщества сразу.</p>.', 'plugin-addon-popup-locker') . '</p>',
+			'description' => '<p>' . __('<p>Пошаговые задания для всех типов замков.</p> <p>Это будет полезным, когда нужно попросить пользователя подписаться на два сообщества сразу.</p>.', 'bizpanda-step-to-step-addon') . '</p>',
 			'shortcode' => 'multilocker',
 			'plugin' => $bizpanda
 		);
@@ -30,22 +30,22 @@
 		return $items;
 	}
 
-	add_filter('bizpanda_items', 'onp_bzda_adn_register_step_to_step_item', 1);
+	add_filter('bizpanda_items', 'bizpanda_step_to_step_register_item', 1);
 
 	/**
 	 * Библиотеки мультизамков, подключаем из после осноного ядра
 	 */
-	function bizpanda_evo_step_to_step_libs_assets()
+	function bizpanda_step_to_step_libs_assets()
 	{
-		wp_enqueue_script('bizpanda-evo-multilocker', BZDA_ADN_PLUGIN_URL . '/panda-items/step-to-step/assets/js/step-to-step.min.js', array('opanda-lockers'), false, true);
-		wp_enqueue_style('bizpanda-evo-multilocker-style', BZDA_ADN_PLUGIN_URL . '/panda-items/step-to-step/assets/css/step-to-step.min.css');
+		wp_enqueue_script('bizpanda-evo-multilocker', BZDA_STS_ADN_PLUGIN_URL . '/plugin/assets/js/step-to-step.min.js', array('opanda-lockers'), false, true);
+		wp_enqueue_style('bizpanda-evo-multilocker-style', BZDA_STS_ADN_PLUGIN_URL . '/plugin/assets/css/step-to-step.min.css');
 	}
 
-	add_action('wp_enqueue_scripts', 'bizpanda_evo_step_to_step_libs_assets');
+	add_action('wp_enqueue_scripts', 'bizpanda_step_to_step_libs_assets');
 
-	function bizpanda_evo_step_to_step_locker_options($options, $id)
+	function bizpanda_step_to_step_locker_options($options, $id)
 	{
-		$itemsRaw = get_post_meta($id, 'bizpanda_evo_combo_items_options', true);
+		$itemsRaw = get_post_meta($id, 'bizpanda_step_to_step_combo_items_options', true);
 		$multilockerOptions = @json_decode($itemsRaw, ARRAY_A);
 
 		$options['groups'] = array(
@@ -130,17 +130,17 @@
 		return $options;
 	}
 
-	add_filter('bizpanda_step-to-step_item_options', 'bizpanda_evo_step_to_step_locker_options', 10, 2);
+	add_filter('bizpanda_step-to-step_item_options', 'bizpanda_step_to_step_locker_options', 10, 2);
 
 	/**
 	 * Подключаем библиотеки для мультизамков
 	 */
-	function bizpanda_evo_lockers_assets($lockerId, $options, $fromBody, $fromHeader)
+	function bizpanda_step_to_step_lockers_assets($lockerId, $options, $fromBody, $fromHeader)
 	{
 		OPanda_AssetsManager::requestLockerAssets();
 	}
 
-	add_action('opanda_request_assets_for_step-to-step', 'bizpanda_evo_lockers_assets', 10, 4);
+	add_action('bizpanda_request_assets_for_step-to-step', 'bizpanda_step_to_step_lockers_assets', 10, 4);
 
 	/**
 	 * Создаем шорткод для мультизамков

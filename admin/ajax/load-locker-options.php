@@ -6,12 +6,12 @@
 	 * @version 1.0
 	 */
 
-	add_action('wp_ajax_bizpanda_evo_get_locker_options', 'onp_bzda_adn_ajax_get_locker_options');
-	add_action('wp_ajax_nopriv_bizpanda_evo_get_locker_options', 'onp_bzda_adn_ajax_get_locker_options');
+	add_action('wp_ajax_bizpanda_step_to_step_get_locker_options', 'bizpanda_step_to_step_ajax_get_locker_options');
+	add_action('wp_ajax_nopriv_bizpanda_step_to_step_get_locker_options', 'bizpanda_step_to_step_ajax_get_locker_options');
 
-	function onp_bzda_adn_ajax_get_locker_options()
+	function bizpanda_step_to_step_ajax_get_locker_options()
 	{
-		check_ajax_referer('bizpanda_evo_step_to_step_nonce');
+		check_ajax_referer('bizpanda_step_to_step_nonce');
 
 		$lockerId = isset($_REQUEST['lockerId']) && !empty($_REQUEST['lockerId'])
 			? intval($_REQUEST['lockerId'])

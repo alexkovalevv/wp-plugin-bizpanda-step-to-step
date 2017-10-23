@@ -26,7 +26,7 @@
 			});
 		},
 		getOptions: function() {
-			var rawOptions = $("#bizpanda_evo_combo_items_options").val(),
+			var rawOptions = $("#bizpanda_step_to_step_combo_items_options").val(),
 				options = {};
 
 			if( rawOptions ) {

@@ -11,7 +11,7 @@
 	 *
 	 * @since 1.0.0
 	 */
-	class BZDA_EVO_CombinationMetabox extends FactoryMetaboxes000_FormMetabox {
+	class BZDA_STS_ADN_CombinationMetabox extends FactoryMetaboxes000_FormMetabox {
 
 		/**
 		 * A visible title of the metabox.
@@ -32,7 +32,7 @@
 		 * @since 1.0.0
 		 * @var string
 		 */
-		public $scope = 'bizpanda_evo';
+		public $scope = 'bizpanda_step_to_step';
 
 		/**
 		 * The priority within the context where the boxes should show ('high', 'core', 'default' or 'low').
@@ -56,15 +56,15 @@
 		public function __construct($plugin)
 		{
 			parent::__construct($plugin);
-
-			$this->title = __('Комбинации замков', 'plugin-addon-popup-locker');
+			
+			$this->title = __('Комбинации замков', 'bizpanda-step-to-step-addon');
 		}
 
 		public function prepareOptions($postId)
 		{
 			global $post;
 
-			$itemsRaw = get_post_meta($postId, 'bizpanda_evo_combo_items_options', true);
+			$itemsRaw = get_post_meta($postId, 'bizpanda_step_to_step_combo_items_options', true);
 			$items = @json_decode($itemsRaw, ARRAY_A);
 
 			if( empty($items) ) {
@@ -156,7 +156,7 @@
 							array(
 								861933,
 								array(
-									'title' => __('Получите скидку на товар 20%', 'plugin-addon-popup-locker'),
+									'title' => __('Получите скидку на товар 20%', 'bizpanda-step-to-step-addon'),
 									'type' => 'locker',
 									'lockerId' => $defaultLocker1['id'],
 									'customScreenDescription' => '',
@@ -166,7 +166,7 @@
 							array(
 								861934,
 								array(
-									'title' => __('Повышайте скидку до 30%', 'plugin-addon-popup-locker'),
+									'title' => __('Повышайте скидку до 30%', 'bizpanda-step-to-step-addon'),
 									'type' => 'locker',
 									'lockerId' => $defaultLocker2['id'],
 									'customScreenDescription' => '',
@@ -176,10 +176,10 @@
 							array(
 								861935,
 								array(
-									'title' => __('Получите купон на скидку', 'plugin-addon-popup-locker'),
+									'title' => __('Получите купон на скидку', 'bizpanda-step-to-step-addon'),
 									'type' => 'custom',
 									'lockerId' => null,
-									'customScreenDescription' => __('Ваш купон на скидку SACSSF343', 'plugin-addon-popup-locker'),
+									'customScreenDescription' => __('Ваш купон на скидку SACSSF343', 'bizpanda-step-to-step-addon'),
 									'groupName' => 'custom-screens'
 								)
 							)
@@ -189,7 +189,7 @@
 							array(
 								861933,
 								array(
-									'title' => __('Получите скидку на товар 20%', 'plugin-addon-popup-locker'),
+									'title' => __('Получите скидку на товар 20%', 'bizpanda-step-to-step-addon'),
 									'type' => 'locker',
 									'lockerId' => $defaultLocker['id'],
 									'customScreenDescription' => '',
@@ -199,10 +199,10 @@
 							array(
 								861934,
 								array(
-									'title' => __('Получите купон на скидку', 'plugin-addon-popup-locker'),
+									'title' => __('Получите купон на скидку', 'bizpanda-step-to-step-addon'),
 									'type' => 'custom',
 									'lockerId' => null,
-									'customScreenDescription' => __('Ваш купон на скидку SACSSF343', 'plugin-addon-popup-locker'),
+									'customScreenDescription' => __('Ваш купон на скидку SACSSF343', 'bizpanda-step-to-step-addon'),
 									'groupName' => 'custom-screens'
 								)
 							)
@@ -231,9 +231,9 @@
 		public function configure($scripts, $styles)
 		{
 
-			$styles->add(BZDA_ADN_PLUGIN_URL . '/panda-items/step-to-step/admin/assets/css/item.edit.000002.css');
-			$scripts->add(BZDA_ADN_PLUGIN_URL . '/panda-items/step-to-step/admin/assets/js/metabox.combination.000002.js');
-			$scripts->add(BZDA_ADN_PLUGIN_URL . '/panda-items/step-to-step/admin/assets/js/item.step-to-step-options.000002.js');
+			$styles->add(BZDA_STS_ADN_PLUGIN_URL . '/admin/assets/css/item.edit.000002.css');
+			$scripts->add(BZDA_STS_ADN_PLUGIN_URL . '/admin/assets/js/metabox.combination.000002.js');
+			$scripts->add(BZDA_STS_ADN_PLUGIN_URL . '/admin/assets/js/item.step-to-step-options.000002.js');
 		}
 
 		/**
@@ -268,7 +268,7 @@
 			$items[] = array(
 				'type' => 'hidden',
 				'name' => 'step_to_step_nonce',
-				'value' => wp_create_nonce("bizpanda_evo_step_to_step_nonce")
+				'value' => wp_create_nonce("bizpanda_step_to_step_nonce")
 			);
 
 			$form->add($items);
@@ -332,12 +332,12 @@
 								<div class="onp-bzda-item-title"><?= $item[1]['title'] ?></div>
 								<div class="onp-bzda-item-sub-title">
 									<div>
-										<b><?php _e('Тип', 'plugin-addon-popup-locker'); ?>:</b>
+										<b><?php _e('Тип', 'bizpanda-step-to-step-addon'); ?>:</b>
 										<span><?= $groupName ?></span>
 									</div>
 									<?php if( !empty($lockerId) ): ?>
 										<div>
-											<b><?php _e('Название замка', 'plugin-addon-popup-locker'); ?>:</b>
+											<b><?php _e('Название замка', 'bizpanda-step-to-step-addon'); ?>:</b>
 											<span><?= get_the_title($lockerId) ?></span>
 										</div>
 									<?php endif; ?>
@@ -352,7 +352,7 @@
 						<?php endforeach; ?>
 				</div>
 				<button id="onp-bzda-new-combo-item" class="button button-default">
-					+ <?php _e('Добавить шаг', 'plugin-addon-popup-locker'); ?></button>
+					+ <?php _e('Добавить шаг', 'bizpanda-step-to-step-addon'); ?></button>
 				<?php echo '<script>window.stepToStepLockersOptions = ' . @json_encode($printLockersOptions) . ';</script>'; ?>
 			</div>
 
@@ -362,31 +362,31 @@
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 							<h4 class="modal-title" id="onp-bzda-combo-settting-modal-label">
-								<?php _e('Редактирование', 'plugin-addon-popup-locker'); ?>:
+								<?php _e('Редактирование', 'bizpanda-step-to-step-addon'); ?>:
 								<span>Социальный замок</span>
 							</h4>
 						</div>
 						<div class="modal-body">
 							<div class="onp-bzda-combo-settting-section">
 								<label style="display: block;" class="onp-bzda-combo-label" for="onp-bzda-combo-title-input">
-									<?php _e('Название шага', 'plugin-addon-popup-locker'); ?>:
+									<?php _e('Название шага', 'bizpanda-step-to-step-addon'); ?>:
 								</label>
-								<input type="text" style="width:100%;" id="onp-bzda-combo-title-input" placeholder="<?php _e('Поделиться в соц. сети (скидка 10%)', 'plugin-addon-popup-locker'); ?>" class="form-control">
+								<input type="text" style="width:100%;" id="onp-bzda-combo-title-input" placeholder="<?php _e('Поделиться в соц. сети (скидка 10%)', 'bizpanda-step-to-step-addon'); ?>" class="form-control">
 
 								<div class="onp-bzda-combo-hint">
 									<?php _e('Введите заголовок шага. Например: "Поделиться в соц. сети (скидка 10%)". Данный
-									текст будет отображен в хлебных крошках замка.', 'plugin-addon-popup-locker'); ?>
+									текст будет отображен в хлебных крошках замка.', 'bizpanda-step-to-step-addon'); ?>
 								</div>
 							</div>
 							<div class="onp-bzda-combo-settting-section">
-								<strong><?php _e('Выберите тип экрана', 'plugin-addon-popup-locker'); ?></strong>
+								<strong><?php _e('Выберите тип экрана', 'bizpanda-step-to-step-addon'); ?></strong>
 
 								<div class="btn-group" id="onp-bzda-choce-combo-item-type" data-toggle="buttons-radio">
 									<button data-target="#onp-bzda-combo-locker-create-tab" type="button" class="btn btn-default onp-bzda-combo-locker-screen-button value active" data-name="locker">
-										<i class="fa fa-lock" aria-hidden="true"></i> <?php _e('Замок', 'plugin-addon-popup-locker'); ?>
+										<i class="fa fa-lock" aria-hidden="true"></i> <?php _e('Замок', 'bizpanda-step-to-step-addon'); ?>
 									</button>
 									<button data-target="#onp-bzda-combo-custom-create-tab" type="button" class="btn btn-default onp-bzda-combo-custom-screen-button value" data-name="custom">
-										<i class="fa fa-desktop" aria-hidden="true"></i> <?php _e('Произвольный', 'plugin-addon-popup-locker'); ?>
+										<i class="fa fa-desktop" aria-hidden="true"></i> <?php _e('Произвольный', 'bizpanda-step-to-step-addon'); ?>
 									</button>
 								</div>
 								<div class="onp-bzda-combo-hint">
@@ -394,13 +394,13 @@
 									замком или произвольный экран.
 									Произвольный экран нужен для того, чтобы разместить какой-то текст, после выподнения
 									определенного шага. Этот текст может быть
-									купоном на скидку или ссылкой, неважно.', 'plugin-addon-popup-locker'); ?>
+									купоном на скидку или ссылкой, неважно.', 'bizpanda-step-to-step-addon'); ?>
 								</div>
 							</div>
 							<div id="onp-bzda-combo-locker-create-tab" class="onp-bzda-combo-settings-tab">
 								<div class="onp-bzda-combo-settting-section">
 									<label style="display: block;" class="onp-bzda-combo-label" for="onp-bzda-combo-locker-select">
-										<?php _e('С какого замка импортировать настройки?', 'plugin-addon-popup-locker'); ?>
+										<?php _e('С какого замка импортировать настройки?', 'bizpanda-step-to-step-addon'); ?>
 									</label>
 									<select style="width:250px;" class="onp-bzda-combo-fieild form-control" id="onp-bzda-combo-locker-select">
 										<?php $lockers = $this->getLockers(); ?>
@@ -412,25 +412,25 @@
 									<div class="onp-bzda-combo-hint">
 										<?php _e('Выбрав замок вы автоматичеси импортируете настройки его содержания. Настройки
 										темы, видимости и дополнительные настройки выбранного замка не используются, а
-										действуют общие настройки примененный для мультизамка.', 'plugin-addon-popup-locker'); ?>
+										действуют общие настройки примененный для мультизамка.', 'bizpanda-step-to-step-addon'); ?>
 									</div>
 								</div>
 							</div>
 							<div id="onp-bzda-combo-custom-create-tab" class="onp-bzda-combo-settings-tab hide">
 								<div class="onp-bzda-combo-settting-section">
 									<label style="display: block;" class="onp-bzda-combo-label">
-										<?php _e('Содержание экрана', 'plugin-addon-popup-locker'); ?>:
+										<?php _e('Содержание экрана', 'bizpanda-step-to-step-addon'); ?>:
 									</label>
 									<?php wp_editor('', 'onp_bdza_combo_custom_screen_description_editor'); ?>
 									<div class="onp-bzda-combo-hint">
-										<?php _e('Основной текст или html код, который будет отображен в произвольном экране.', 'plugin-addon-popup-locker'); ?>
+										<?php _e('Основной текст или html код, который будет отображен в произвольном экране.', 'bizpanda-step-to-step-addon'); ?>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal"><?php _e('Отмена', 'plugin-addon-popup-locker'); ?></button>
-							<button type="button" id="onp-bzda-save-combo-item-options" class="btn btn-primary"><?php _e('Сохранить', 'plugin-addon-popup-locker'); ?></button>
+							<button type="button" class="btn btn-default" data-dismiss="modal"><?php _e('Отмена', 'bizpanda-step-to-step-addon'); ?></button>
+							<button type="button" id="onp-bzda-save-combo-item-options" class="btn btn-primary"><?php _e('Сохранить', 'bizpanda-step-to-step-addon'); ?></button>
 						</div>
 					</div>
 				</div>
@@ -471,7 +471,7 @@
 		{
 			$str = str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
 
-			if( !$capitalizeFirstCharacter ) {
+			if( !$capitalizeFirstCharacter && isset($str[0]) ) {
 				$str[0] = strtolower($str[0]);
 			}
 
@@ -492,5 +492,5 @@
 
 	global $bizpanda;
 
-	FactoryMetaboxes000::register('BZDA_EVO_CombinationMetabox', $bizpanda);
+	FactoryMetaboxes000::register('BZDA_STS_ADN_CombinationMetabox', $bizpanda);
 /*@mix:place*/

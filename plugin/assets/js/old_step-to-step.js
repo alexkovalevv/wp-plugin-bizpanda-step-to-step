@@ -1,15 +1,3 @@
-/*!
- * Step to step addon - v1.0.3, 2017-10-25 
- * for Social Locker platform: Russian site: https://sociallocker.ru,
- * English sites: https://sociallocker.org, http://byonepress.com 
- * 
- * Copyright 2017, Alex Kovalev <alex.kovalevv@gmail.com> 
- * Webcraftic (c) 2017 
- * Support: Russian support: https://sociallocker.ru/create-ticket/,
- * English support: http://support.byonepress.com/ 
- * 
- * This modification allows you to create step-by-step tasks.
-*/
 /**
  * Произвольный экран для конструктора заданий
  *
@@ -134,20 +122,6 @@
 		$.pandalocker.step_to_step.needed = 0;
 		$.pandalocker.step_to_step.finish = 0;
 	}
-
-	$.pandalocker.hooks.add('opanda-before-init', function(e, locker) {
-		var defaults = {
-			popup_addon_step_counter: 'STEP',
-			popup_addon_step_default_title: 'Set screen header for example: "Get discount 20%"'
-		};
-
-		$.pandalocker.lang = $.extend(true, $.pandalocker.lang, defaults);
-
-		if( window.__pandalockers && window.__pandalockers.lang ) {
-			$.pandalocker.lang = $.extend(true, $.pandalocker.lang, window.__pandalockers.lang);
-			window.__pandalockers.lang = null;
-		}
-	});
 
 	/**
 	 * Устанавливаем настройки по умолчанию
@@ -294,10 +268,10 @@
 			progressLine = $('<div class="onp-sts-progress-line"></div>');
 
 		if( options.stepToStep && options.stepToStep['step' + index] ) {
-			markTitle = options.stepToStep['step' + index].title || $.pandalocker.lang.popup_addon_step_default_title;
+			markTitle = options.stepToStep['step' + index].title || '';
 		}
 
-		progressLine.append('<div class="onp-sts-step-mark onp-sts-step-' + index + '-mark" data-step="' + index + '"><span>' + $.pandalocker.lang.popup_addon_step_counter + ' #' + index + '</span>' + markTitle + '</div>');
+		progressLine.append('<div class="onp-sts-step-mark onp-sts-step-' + index + '-mark"><span>ШАГ #' + index + '</span>' + markTitle + '</div>');
 
 		return progressLine;
 	}

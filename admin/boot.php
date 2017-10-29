@@ -148,7 +148,7 @@
 		global $bizpanda_sts_addon;
 
 		if( $file == $bizpanda_sts_addon->relativePath ) {
-			$links[] = '<a href="' . opanda_get_admin_url('how-to-use', array('opanda_page' => 'bizpanda-popups-addon')) . '" target="_blank">' . __('How to use?', 'bizpanda-step-to-step-addon') . '</a>';
+			$links[] = '<a href="' . opanda_get_admin_url('how-to-use', array('opanda_page' => 'bizpanda-sts-addon')) . '" target="_blank">' . __('How to use?', 'bizpanda-step-to-step-addon') . '</a>';
 		}
 
 		return $links;

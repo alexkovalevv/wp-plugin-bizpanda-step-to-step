@@ -3,7 +3,7 @@
 	 * Plugin Name:[Bizpanda addon] Step to step
 	 * Plugin URI: http://byoneress.com
 	 * Description: This allows you to use several locks of different types in one widget and open them one at a time. The user will receive a bonus when he opens all the settings in the queue locks. With this add-on you can get twice as many leads.
-	 * Author: Webcraftic <wordpress.webraftic@gmail.com>
+	 * Author: Alex Kovalev <alex.kovalevv@gmail.com>
 	 * Version: 1.0.0
 	 * Author URI: https://profiles.wordpress.org/webcraftic
 	 */
